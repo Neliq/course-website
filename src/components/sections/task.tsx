@@ -27,11 +27,11 @@ interface TaskProps {
 
 const Task: React.FC<TaskProps> = ({ title, description, href }) => {
   return (
-    <div className="bg-white w-full flex justify-center p-8 rounded-xl">
-      <div className="flex w-full flex-col justify-center items-start gap-8">
+    <div className="bg-white w-full flex justify-center items-center p-8 rounded-xl">
+      <div className="flex w-full flex-col justify-center items-center text-center lg:text-left lg:items-start gap-8">
         <h1 className="text-xl">{title}</h1>
         <p className="max-w-[640px]">{description}</p>
-        <div className="flex gap-4">
+        <div className="flex flex-col lg:flex-row gap-4">
           <Link href={href} target="_blank" rel="noopener noreferrer">
             <Button className="gap-[8px] bg-blue-600">
               <FaFigma />
@@ -46,7 +46,7 @@ const Task: React.FC<TaskProps> = ({ title, description, href }) => {
                 Send for review
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="max-w-[328px] lg:max-w-[512px]">
               <DialogHeader>
                 <DialogTitle>Send for review</DialogTitle>
                 <DialogDescription>

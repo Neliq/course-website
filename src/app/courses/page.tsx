@@ -3,7 +3,7 @@ import { CourseCard } from "@/components/sections/course_card";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-slate-50">
+    <main className="flex min-h-screen w-full flex-col items-center justify-between bg-slate-50">
       <div className="z-10 w-full container m-8 items-center justify-between text-sm flex flex-col gap-8">
         <Header selected="2" />
         <CourseCard

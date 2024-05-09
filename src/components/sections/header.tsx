@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ selected }) => {
           <h1 className="text-2xl font-semibold text-blue-800">Coursero</h1>
         </Link>
       </div>
-      <div className="flex items-center gap-4 lg:visible invisible">
+      <div className="flex items-center gap-4 lg:flex hidden">
         <Link href="/" legacyBehavior passHref>
           <Button
             className={
@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ selected }) => {
           </Button>
         </Link>
       </div>
-      <div className="flex gap-4 lg:visible invisible">
+      <div className="gap-4 lg:flex hidden">
         <Button>Log In</Button>
         <Button variant="secondary">Sign Up</Button>
       </div>
