@@ -26,12 +26,13 @@ interface TaskProps {
 }
 
 const Task: React.FC<TaskProps> = ({ title, description, href }) => {
+  if (href === "") return null;
   return (
-    <div className="bg-white w-full flex justify-center items-center p-8 rounded-xl">
-      <div className="flex w-full flex-col justify-center items-center text-center lg:text-left lg:items-start gap-8">
+    <div className="flex w-full items-center justify-center rounded-xl border-[1px] border-slate-200 bg-white p-8">
+      <div className="flex w-full flex-col items-center justify-center gap-8 text-center lg:items-start lg:text-left">
         <h1 className="text-xl">{title}</h1>
         <p className="max-w-[640px]">{description}</p>
-        <div className="flex flex-col lg:flex-row gap-4">
+        <div className="flex flex-col gap-4 lg:flex-row">
           <Link href={href} target="_blank" rel="noopener noreferrer">
             <Button className="gap-[8px] bg-blue-600">
               <FaFigma />

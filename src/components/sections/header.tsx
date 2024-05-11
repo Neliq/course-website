@@ -6,6 +6,12 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "Courses", href: "/courses" },
+];
 
 type HeaderProps = {
   selected: string;
@@ -15,9 +21,9 @@ const Header: React.FC<HeaderProps> = ({ selected }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="w-full flex justify-between items-center">
+    <div className="sticky top-2 z-50 flex w-full items-center justify-between rounded-xl bg-white px-4 py-2 shadow-xl shadow-slate-300/5">
       <div className="flex">
-        <Link href="/" className="w-full flex items-center gap-4">
+        <Link href="/" className="flex w-full items-center gap-4">
           <Image
             width={40}
             height={40}
@@ -25,30 +31,30 @@ const Header: React.FC<HeaderProps> = ({ selected }) => {
             alt="Logo"
             className="rounded-md object-cover"
           />
-          <h1 className="text-2xl font-semibold text-blue-800">Coursero</h1>
+          <h1 className="text-xl font-semibold text-slate-500">UXSource</h1>
         </Link>
       </div>
-      <div className="items-center gap-4 lg:flex hidden">
-        <Link href="/" legacyBehavior passHref>
-          <Button
-            className={
-              selected === "1" ? "bg-blue-500" : "bg-transparent text-blue-500"
-            }
-          >
-            Home
-          </Button>
-        </Link>
-        <Link href="/courses" legacyBehavior passHref>
-          <Button
-            className={
-              selected === "2" ? "bg-blue-500" : "bg-transparent text-blue-500"
-            }
-          >
-            Courses
-          </Button>
-        </Link>
+      <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden lg:flex lg:gap-x-2">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              legacyBehavior
+              passHref
+              href={item.href}
+              className="text-sm font-semibold text-gray-900"
+            >
+              <motion.div
+                className="cursor-pointer p-4 hover:underline"
+                whileHover={{ scale: 1.1 }}
+              >
+                {item.name}
+              </motion.div>
+            </Link>
+          ))}
+        </div>
       </div>
-      <div className="gap-4 lg:flex hidden">
+      <div className="hidden gap-4 lg:flex">
         <Button>Log In</Button>
         <Button variant="secondary">Sign Up</Button>
       </div>
@@ -69,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ selected }) => {
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute top-0 left-0 w-full h-full bg-white flex flex-col items-center gap-4 p-4 z-50">
+        <div className="absolute left-0 top-0 z-50 flex h-full w-full flex-col items-center gap-4 bg-white p-4">
           <button className="self-end" onClick={() => setIsOpen(false)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,28 +92,22 @@ const Header: React.FC<HeaderProps> = ({ selected }) => {
               />
             </svg>
           </button>
-          <Link href="/" legacyBehavior passHref>
-            <Button
-              className={
-                selected === "1"
-                  ? "bg-blue-500"
-                  : "bg-transparent text-blue-500"
-              }
+          {navigation.map((item) => (
+            <motion.div
+              key={item.name}
+              className="p-4 hover:underline"
+              whileHover={{ scale: 1.1 }}
             >
-              Home
-            </Button>
-          </Link>
-          <Link href="/courses" legacyBehavior passHref>
-            <Button
-              className={
-                selected === "2"
-                  ? "bg-blue-500"
-                  : "bg-transparent text-blue-500"
-              }
-            >
-              Courses
-            </Button>
-          </Link>
+              <Link
+                legacyBehavior
+                passHref
+                href={item.href}
+                className="text-sm font-semibold text-gray-900"
+              >
+                {item.name}
+              </Link>
+            </motion.div>
+          ))}
           <Button>Log In</Button>
           <Button variant="secondary">Sign Up</Button>
         </div>

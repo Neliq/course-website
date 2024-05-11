@@ -1,30 +1,19 @@
 import { Header } from "@/components/sections/header";
 import { CourseCard } from "@/components/sections/course_card";
+import { Background } from "@/components/sections/background";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-between bg-slate-50">
-      <div className="z-10 w-full container m-8 items-center justify-between text-sm flex flex-col gap-8">
+    <Background>
+      <div className="flex w-full flex-col items-center justify-between gap-8">
         <Header selected="2" />
         <CourseCard
-          src="/ui-course-thumbnail.jpg"
-          title="Advanced Figma UI Course"
-          description="In this course, you will learn how to design a modern UI in Figma. You will learn how to create a design system, design components, and create a prototype. You will also learn how to create a design system in Figma. Start the course now!"
-          href="/ui-course"
-        />
-        <CourseCard
-          src="/ui-course-thumbnail2.jpg"
-          title="Beginner UX Course"
-          description="In this course, you will learn the basics of UX design. You will learn how to conduct user research, create user personas, and create wireframes. You will also learn how to create a prototype in Figma. Start the course now!"
-          href="/ui-course"
-        />
-        <CourseCard
-          src="/ui-course-thumbnail.jpg"
-          title="Advanced Figma UI Course"
-          description="In this course, you will learn how to design a modern UI in Figma. You will learn how to create a design system, design components, and create a prototype. You will also learn how to create a design system in Figma. Start the course now!"
+          src="/ui-course-thumbnail.png"
+          title="Taildwind CSS for Designers"
+          description="In this course, you will learn how to use Tailwind CSS to design and build modern user interfaces. Tailwind CSS is a utility-first CSS framework that is rapidly gaining popularity among web developers and designers. It has its own Figma Design System based on variables."
           href="/ui-course"
         />
       </div>
-    </main>
+    </Background>
   );
 }
