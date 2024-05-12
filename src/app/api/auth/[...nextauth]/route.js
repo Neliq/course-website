@@ -42,6 +42,9 @@ const authOptions = {
       return user;
     },
   },
+  pages: {
+    signIn: '/login', // Add your custom sign-in page path here
+  },
 };
 
 const handler = NextAuth(authOptions);

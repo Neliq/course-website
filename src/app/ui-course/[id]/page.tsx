@@ -39,6 +39,7 @@ export default function Page({ params }: { params: { id: string } }) {
             title={DataSet.title}
             description={DataSet.description}
             href={DataSet.href}
+            id={DataSet.id}
           />
 
           <BackNextButtons currentId={currentId} data={data} />

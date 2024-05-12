@@ -20,7 +20,9 @@ const Hero = () => {
           those hungry for growth, driven by curiosity, and passionate about
           mastering new skills.
         </p>
-        <Button>Get Started</Button>
+        <Link href="/courses">
+          <Button>Get Started</Button>
+        </Link>
       </div>
     </div>
   );

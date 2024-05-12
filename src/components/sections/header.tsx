@@ -8,6 +8,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+import { useSession } from "next-auth/react";
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Courses", href: "/courses" },
@@ -19,6 +21,7 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ selected }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { status } = useSession();
 
   return (
     <div className="sticky top-2 z-50 flex w-full items-center justify-between rounded-xl bg-white px-4 py-2 shadow-xl shadow-slate-300/5">
@@ -55,8 +58,9 @@ const Header: React.FC<HeaderProps> = ({ selected }) => {
         </div>
       </div>
       <div className="hidden gap-4 lg:flex">
-        <Button>Log In</Button>
-        <Button variant="secondary">Sign Up</Button>
+        <Link href="/login">
+          <Button>{status === "authenticated" ? "Profile" : "Log In"}</Button>
+        </Link>
       </div>
       <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
         <svg
@@ -108,8 +112,9 @@ const Header: React.FC<HeaderProps> = ({ selected }) => {
               </Link>
             </motion.div>
           ))}
-          <Button>Log In</Button>
-          <Button variant="secondary">Sign Up</Button>
+          <Link href="/login">
+            <Button>Log In</Button>
+          </Link>
         </div>
       )}
     </div>
