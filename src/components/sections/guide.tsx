@@ -2,7 +2,8 @@ import * as React from "react";
 import Image from "next/image";
 import { GuideCard } from "./guide_card";
 
-const Guide = () => {
+const Guide = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 4000));
   return (
     <div className="flex w-full flex-col items-center gap-8 lg:flex-row lg:justify-between">
       <div className="flex flex-col items-center text-center">

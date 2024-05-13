@@ -1,17 +1,18 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
+import { AnyCnameRecord } from "dns";
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 
 const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
   callbacks: {
-    async signIn({ user, account }) {
+    async signIn({ user, account }: { user: any, account: any }) {
       if (account.provider === "google") {
         const { name, email } = user;
         try {

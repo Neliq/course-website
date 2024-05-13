@@ -20,7 +20,7 @@ const roboto_mono = Roboto_Mono({
 export const metadata: Metadata = {
   title: "UXSource | Free UX/UI Design Courses",
   description:
-    "UXSource is a curated list of free courses made by our experienced designers. From beginner to advanced, with Figma Files and Feeback system.",
+    "UXSource is a curated list of free courses made by our experienced designers. From beginner to advanced, with Figma Files and Feedback system.",
   metadataBase: new URL("https://courses.koszyka.com/"),
   keywords: [
     "Free UX/UI Courses",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "UXSource | Free UX/UI Design Courses",
     description:
-      "UXSource is a curated list of free courses made by our experienced designers. From beginner to advanced, with Figma Files and Feeback system.",
+      "UXSource is a curated list of free courses made by our experienced designers. From beginner to advanced, with Figma Files and Feedback system.",
     url: "https://courses.koszyka.com/",
     siteName: "Jakub Koszyka",
     images: [

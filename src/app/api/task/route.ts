@@ -2,7 +2,7 @@ import { connectMongoDB } from "@/lib/mongodb";
 import Task from "@/models/task";
 import { NextResponse } from "next/server";
 
-export async function POST(request) {
+export async function POST(request: any) {
   const { email, task, link, state } = await request.json();
   await connectMongoDB();
 
@@ -16,7 +16,7 @@ export async function POST(request) {
   return NextResponse.json({ message: "Task Registered" }, { status: 201 });
 }
 
-export async function GET(request) {
+export async function GET(request: any) {
   if (request.method === 'GET') {
     await connectMongoDB();
 
@@ -24,9 +24,9 @@ export async function GET(request) {
     const task = request.nextUrl.searchParams.get('task');
 
     // Find a task with the given email and task id
-    const empdata = await Task.findOne({ email, task });
+    const data = await Task.findOne({ email, task });
 
-    return NextResponse.json(empdata);
+    return NextResponse.json(data);
   } else {
     return NextResponse.json({ message: "Method not allowed" }, { status: 405 });
   }
