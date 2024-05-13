@@ -15,36 +15,34 @@ export default function Page({ params }: { params: { id: string } }) {
     return <div>No data found for this id</div>;
   }
   return (
-    <Background>
-      <div className="flex w-full flex-col items-center gap-8">
-        <Header selected="0" />
-        <div className="flex w-full flex-col items-center gap-4 rounded-xl bg-white p-4 shadow-xl shadow-slate-300/5">
-          <div className="lg-gap-0 flex w-full flex-col items-center justify-between gap-4 lg:flex-row">
-            <Link href="/ui-course">
-              <Button>Go back to course</Button>
-            </Link>
-            <h1 className="order-first text-xl font-semibold lg:order-none">
-              {DataSet.name}
-            </h1>
-            <BackNextButtons currentId={currentId} data={data} />
-          </div>
-
-          <YoutubeVideo
-            videoId={DataSet.videoId}
-            videoTitle={DataSet.videoTitle}
-            videoDesc={DataSet.videoDesc}
-          />
-
-          <Task
-            title={DataSet.title}
-            description={DataSet.description}
-            href={DataSet.href}
-            id={DataSet.id}
-          />
-
+    <div className="flex w-full flex-col items-center gap-8">
+      <Header selected="0" />
+      <div className="flex w-full flex-col items-center gap-4 rounded-xl bg-white p-4 shadow-xl shadow-slate-300/5">
+        <div className="lg-gap-0 flex w-full flex-col items-center justify-between gap-4 lg:flex-row">
+          <Link href="/ui-course">
+            <Button>Go back to course</Button>
+          </Link>
+          <h1 className="order-first text-xl font-semibold lg:order-none">
+            {DataSet.name}
+          </h1>
           <BackNextButtons currentId={currentId} data={data} />
         </div>
+
+        <YoutubeVideo
+          videoId={DataSet.videoId}
+          videoTitle={DataSet.videoTitle}
+          videoDesc={DataSet.videoDesc}
+        />
+
+        <Task
+          title={DataSet.title}
+          description={DataSet.description}
+          href={DataSet.href}
+          id={DataSet.id}
+        />
+
+        <BackNextButtons currentId={currentId} data={data} />
       </div>
-    </Background>
+    </div>
   );
 }

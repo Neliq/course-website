@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function SignIn() {
   const { status, data: session } = useSession();
   return (
-    <Background>
+    <div>
       {status === "authenticated" ? (
         <div className="flex min-h-[90svh] flex-col items-center justify-center gap-8">
           <div className="flex items-center gap-3 rounded-lg bg-white p-8 shadow-xl">
@@ -118,6 +118,6 @@ export default function SignIn() {
           </div>
         </div>
       )}
-    </Background>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Background } from "@/components/sections/background";
 
-export default function SignIn() {
+export default function Loading() {
   return <Background>Loading</Background>;
 }

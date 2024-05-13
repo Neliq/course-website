@@ -5,6 +5,8 @@ import { NextAuthProvider } from "./Providers";
 
 import { Inter, Roboto_Mono } from "next/font/google";
 
+import { Background } from "../components/sections/background";
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -84,7 +86,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${roboto_mono.variable}`}>
       <body>
-        <NextAuthProvider>{children}</NextAuthProvider>
+        <NextAuthProvider>
+          <Background>{children}</Background>
+        </NextAuthProvider>
       </body>
     </html>
   );
