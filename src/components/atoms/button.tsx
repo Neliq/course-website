@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
 }) => {
   const commonClasses =
-    "inline-flex items-center rounded-md px-4 py-2 gap-2 text-sm font-regular shadow-sm";
+    "inline-flex items-center rounded-full px-6 py-2 gap-2 text-md font-regular shadow-sm";
   let variantClasses;
 
   switch (variant) {

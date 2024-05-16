@@ -10,7 +10,7 @@ const Hero = () => {
         <h1 className="mb-4 text-6xl leading-snug">
           Upgrade your <br /> knowledge today!
         </h1>
-        <div className="text-md mb-4 flex rounded-full border-2 border-indigo-800 bg-indigo-200 px-4 py-2 font-semibold text-indigo-800 opacity-75">
+        <div className="text-md mb-4 flex rounded-md border-2 border-indigo-600 bg-transparent px-4 py-2 font-semibold text-indigo-600 opacity-75">
           Free Access
         </div>
         <p className="mb-8 max-w-2xl text-base leading-normal">

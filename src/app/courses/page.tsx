@@ -6,16 +6,10 @@ export default function Home() {
     <div className="mx-auto mb-32 flex w-full max-w-[1280px] flex-col gap-8 ">
       <NavBar />
       <CourseCard
-        src="/ui-course-thumbnail.png"
-        title="Taildwind CSS for Designers"
-        description="In this course, you will learn how to use Tailwind CSS to design and build modern user interfaces. Tailwind CSS is a utility-first CSS framework that is rapidly gaining popularity among web developers and designers. It has its own Figma Design System based on variables."
-        href="/ui-course"
-      />
-      <CourseCard
-        src="/ui-course-thumbnail.png"
-        title="Taildwind CSS for Designers"
-        description="In this course, you will learn how to use Tailwind CSS to design and build modern user interfaces. Tailwind CSS is a utility-first CSS framework that is rapidly gaining popularity among web developers and designers. It has its own Figma Design System based on variables."
-        href="/ui-course"
+        src="/next-js-course-thumbnail.webp"
+        title="Next.js for beginners"
+        description="Learn the fastest and easiest way to build fullstack web applications. Next.js is a React framework that allows you to build server-side rendered applications with ease."
+        href="/next-js"
       />
     </div>
   );

@@ -58,7 +58,7 @@ export default function NavBar() {
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button variant="secondary" href="/login">
+          <Button variant="tertiary" href="/login">
             {status === "authenticated" ? "Profile" : "Log In"}
           </Button>
         </div>
@@ -107,7 +107,7 @@ export default function NavBar() {
                 </Link>
               </div>
               <div className="py-6">
-                <Button variant="secondary" href="/login">
+                <Button variant="tertiary" href="/login">
                   {status === "authenticated" ? "Profile" : "Log In"}
                 </Button>
               </div>

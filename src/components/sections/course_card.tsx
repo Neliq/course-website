@@ -21,7 +21,7 @@ type CardProps = {
 };
 
 const CourseCard: React.FC<CardProps> = ({ href, src, title, description }) => (
-  <div className="flex w-full flex-col items-center justify-between rounded-lg bg-white lg:flex-row lg:items-start">
+  <div className="flex w-full flex-col items-center justify-between overflow-hidden rounded-lg bg-white lg:flex-row lg:items-start">
     <div
       style={{
         position: "relative",
@@ -41,7 +41,7 @@ const CourseCard: React.FC<CardProps> = ({ href, src, title, description }) => (
           width: "100%",
           height: "100%",
         }}
-        className="absolute left-0 top-0 rounded-lg"
+        className="absolute left-0 top-0"
       />
     </div>
     <div className="flex w-full flex-col items-center gap-4 p-8 text-center lg:w-1/2 lg:items-start lg:justify-start lg:text-left">

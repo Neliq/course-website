@@ -23,14 +23,14 @@ const BackNextButtons: React.FC<BackNextButtonsProps> = ({
   return (
     <div className="flex gap-4">
       {previousItemExists ? (
-        <Button variant="tertiary" href={`/ui-course/${previousId}`}>
+        <Button variant="tertiary" href={`/next-js/${previousId}`}>
           Back
         </Button>
       ) : (
         <Button variant="disabled">Back</Button>
       )}
       {nextItemExists ? (
-        <Button variant="tertiary" href={`/ui-course/${nextId}`}>
+        <Button variant="tertiary" href={`/next-js/${nextId}`}>
           Next
         </Button>
       ) : (
