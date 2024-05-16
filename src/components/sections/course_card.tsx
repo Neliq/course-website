@@ -1,15 +1,3 @@
-"use client";
-
-import * as React from "react";
-import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import Image from "next/image";
 import { Button } from "../atoms/button";
 
@@ -26,7 +14,7 @@ const CourseCard: React.FC<CardProps> = ({ href, src, title, description }) => (
       style={{
         position: "relative",
       }}
-      className="h-[256px] w-full border-b-2 lg:h-[400px] lg:w-1/2 lg:border-b-0 lg:border-r-2"
+      className="h-[256px] w-full border-b-2 lg:h-[300px] lg:w-1/2 lg:border-b-0 lg:border-r-2"
     >
       <Image
         layout="fill"

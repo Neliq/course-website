@@ -9,39 +9,39 @@ import {
 
 const features = [
   {
-    name: "Figma Files",
+    name: "Resource Files",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "We provide you with all the necessary files to complete the course. No need to search for them on the internet.",
     icon: CloudArrowUpIcon,
   },
   {
     name: "Video Tutorials",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "All our courses are accompanied by video tutorials. You can watch them at any time and as many times as you want.",
     icon: LockClosedIcon,
   },
   {
     name: "Feedback for each task",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "After completing each task, you will receive feedback from our experts. This will help you improve your skills.",
     icon: ArrowPathIcon,
   },
   {
     name: "Unique course topics",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "Our courses are unique and cover the most important topics in the field. You won't find them anywhere else.",
     icon: ShieldCheckIcon,
   },
   {
     name: "Only the useful stuff",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "We don't waste your time with unnecessary information. We focus only on the most important topics.",
     icon: CogIcon,
   },
   {
     name: "Completely free to use",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "All our courses are completely free to use. You don't have to pay anything to access them.",
     icon: ServerIcon,
   },
 ];
@@ -49,7 +49,7 @@ const features = [
 const FeatureSection: React.FC = () => {
   return (
     <div className="relative">
-      <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto text-center sm:max-w-3xl lg:max-w-7xl">
         <h2 className="text-lg font-semibold text-indigo-600">Why us?</h2>
         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           The most innovative courses on the market

@@ -25,8 +25,8 @@ const TextPage: React.FC<TextPageProps> = ({ currentId }) => {
   }, [currentId]);
 
   return DynamicComponent ? (
-    <div className="flex w-full rounded-xl border-[1px] border-slate-200 bg-white p-8">
-      <div className="prose lg:prose-xl ">
+    <div className="flex w-full justify-center rounded-xl border-[1px] border-slate-200 bg-white p-4 lg:p-8">
+      <div className="prose pt-16 lg:prose-xl">
         <DynamicComponent />
       </div>
     </div>

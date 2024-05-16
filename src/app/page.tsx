@@ -5,7 +5,7 @@ import { Stream } from "@/components/sections/stream";
 
 export default function Home() {
   return (
-    <div className="mx-auto mb-32 flex w-full max-w-[1280px] flex-col gap-32 ">
+    <div className="mx-auto mb-32 flex w-full max-w-[1280px] flex-col gap-32 px-[16px] lg:px-[64px] ">
       <Stream>
         <NavBar />
       </Stream>

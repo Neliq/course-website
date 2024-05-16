@@ -40,13 +40,13 @@ npm run dev
           replace its contents with the following code:
         </p>
         {/* prettier-ignore */}
-        <pre className="whitespace-pre"><code>{`import React from 'react';
+        <pre className="whitespace-pre-wrap break-words"><code>{`import React from 'react';
 
 const Home = () => {
   return (
     <div>
       <h1>Hello World</h1>
-      <p>Welcome to your first Next.js application!</p>
+      <p>Welcome to the Next.js project!</p>
     </div>
   );
 };

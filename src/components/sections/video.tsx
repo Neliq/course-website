@@ -1,8 +1,5 @@
 "use client";
 
-import React from "react";
-import YouTube from "react-youtube";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
@@ -31,8 +28,8 @@ const YoutubeVideo: React.FC<YoutubeVideoProps> = ({
   if (videoId === "") return null;
 
   return (
-    <div className="flex w-full flex-col items-start justify-between gap-8 rounded-xl border-[1px] border-slate-200 bg-white p-8 lg:flex-row">
-      <div className="flex flex-col items-start gap-4">
+    <div className="flex w-full flex-col items-start justify-between gap-8 rounded-xl border-[1px] border-slate-200 bg-white p-4 lg:flex-row lg:p-8">
+      <div className="flex flex-col items-start gap-4 text-center lg:text-left">
         <h1 className="text-xl font-semibold">{videoTitle}</h1>
         <div className="">
           <p

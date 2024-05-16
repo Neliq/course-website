@@ -3,14 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../atoms/button";
 import { useState } from "react";
-import { Dialog, Disclosure, Popover } from "@headlessui/react";
+import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useSession } from "next-auth/react";
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,7 +13,7 @@ export default function NavBar() {
   return (
     <header className="w-full rounded-2xl bg-white">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">

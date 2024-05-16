@@ -14,17 +14,19 @@ export default function Page({ params }: { params: { id: string } }) {
     return <div>No data found for this id</div>;
   }
   return (
-    <div className="flex h-screen w-full flex-col items-center gap-4 overflow-hidden rounded-xl bg-white py-4 shadow-xl shadow-slate-300/5">
-      <div className="lg-gap-0 flex w-full flex-col items-center justify-between gap-4 px-4 lg:flex-row">
-        <Button href="/next-js" variant="tertiary">
-          Go back to course
-        </Button>
+    <div className="flex h-screen w-full flex-col items-center gap-4 overflow-hidden rounded-xl bg-white pt-4 shadow-xl shadow-slate-300/5 lg:gap-8 lg:p-8">
+      <div className="flex w-full flex-col items-center justify-between gap-4 lg:flex-row lg:gap-0">
+        <div className="hidden lg:flex">
+          <Button href="/courses" variant="tertiary">
+            Courses list
+          </Button>
+        </div>
         <h1 className="order-first text-xl font-semibold lg:order-none">
           {DataSet.name}
         </h1>
         <BackNextButtons currentId={currentId} data={data} />
       </div>
-      <ScrollArea className="w-full overflow-auto px-4">
+      <ScrollArea className="w-full overflow-auto">
         <div className="flex w-full flex-col gap-16">
           <YoutubeVideo
             videoId={DataSet.videoId}
