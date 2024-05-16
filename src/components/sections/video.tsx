@@ -4,6 +4,8 @@ import React from "react";
 import YouTube from "react-youtube";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 interface YoutubeVideoProps {
   videoId: string;
@@ -29,7 +31,7 @@ const YoutubeVideo: React.FC<YoutubeVideoProps> = ({
   if (videoId === "") return null;
 
   return (
-    <div className="flex w-full flex-col items-center gap-16 rounded-xl border-[1px] border-slate-200 bg-white p-8 lg:flex-row">
+    <div className="flex w-full flex-col items-start justify-between gap-8 rounded-xl border-[1px] border-slate-200 bg-white p-8 lg:flex-row">
       <div className="flex flex-col items-start gap-4">
         <h1 className="text-xl font-semibold">{videoTitle}</h1>
         <div className="">
@@ -46,11 +48,8 @@ const YoutubeVideo: React.FC<YoutubeVideoProps> = ({
           </button>
         </div>
       </div>
-      <div className="w-full min-w-[256px] max-w-[640px]">
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+      <div className="w-full min-w-[256px] max-w-[640px] overflow-hidden rounded-2xl">
+        <div
           style={{
             position: "relative",
             height: "0",
@@ -58,19 +57,8 @@ const YoutubeVideo: React.FC<YoutubeVideoProps> = ({
             width: "100%",
           }}
         >
-          <YouTube
-            videoId={videoId}
-            opts={opts}
-            onReady={_onReady}
-            style={{
-              position: "absolute",
-              top: "0",
-              left: "0",
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </motion.div>
+          <LiteYouTubeEmbed id={videoId} title="" poster="maxresdefault" />
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,7 @@
 "use client";
-
 import { signIn, signOut, useSession } from "next-auth/react";
-import { Background } from "@/components/sections/background";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Button } from "@/components/atoms/button";
 
 export default function SignIn() {
   const { status, data: session } = useSession();
@@ -12,7 +9,7 @@ export default function SignIn() {
     <div>
       {status === "authenticated" ? (
         <div className="flex min-h-[90svh] flex-col items-center justify-center gap-8">
-          <div className="flex items-center gap-3 rounded-lg bg-white p-8 shadow-xl">
+          <div className="flex items-center gap-3 rounded-2xl bg-white p-8">
             <Image
               className="rounded-full"
               alt="User Image"
@@ -21,31 +18,25 @@ export default function SignIn() {
               height={60}
             />
             <div>
-              <span className="font-bold">{session?.user?.name}</span>
+              <span className="font-semibold">{session?.user?.name}</span>
             </div>
           </div>
           <div className="flex gap-4">
-            <Button
-              onClick={() => signOut()}
-              className="rounded-md border-2 border-slate-900 bg-transparent px-6 py-2 text-slate-900 hover:text-white"
-            >
+            <Button onClick={() => signOut()} variant="secondary">
               Sign Out
             </Button>
-            <Link href="/courses">
-              <Button>Continue to courses</Button>
-            </Link>
+            <Button variant="primary" href="/courses">
+              Continue to courses
+            </Button>
           </div>
         </div>
       ) : (
         <div className="flex min-h-[90svh] flex-col items-center justify-center gap-8">
-          <div className="flex flex-col items-center gap-8 rounded-lg bg-white p-8 shadow-xl">
+          <div className="flex flex-col items-center gap-8 rounded-lg bg-white p-8">
             <h1 className="text-xl font-medium">
               To use this service you need to sign in first.
             </h1>
-            <Button
-              onClick={() => signIn("google")}
-              className="border border-gray-300 bg-white text-slate-800 shadow-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:bg-gray-900 dark:text-white"
-            >
+            <Button onClick={() => signIn("google")} variant="tertiary">
               <svg
                 className="mr-2 h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
@@ -110,11 +101,9 @@ export default function SignIn() {
               </svg>
               <span>Continue with Google</span>
             </Button>
-            <Link href="/">
-              <Button className="rounded-md border-2 border-slate-900 bg-transparent px-6 py-2 text-slate-900 hover:text-white">
-                Cancel
-              </Button>
-            </Link>
+            <Button href="/" variant="secondary">
+              Cancel
+            </Button>
           </div>
         </div>
       )}

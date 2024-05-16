@@ -1,14 +1,13 @@
-import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
-import { Guide } from "@/components/sections/guide";
-import { Background } from "@/components/sections/background";
+import NavBar from "@/components/molecules/navbar";
+import FeatureSection from "@/components/atoms/feature_section";
 
 export default function Home() {
   return (
-    <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-32">
-      <Header selected="Home" />
+    <div className="mx-auto mb-32 flex w-full max-w-[1280px] flex-col gap-32 ">
+      <NavBar />
       <Hero />
-      <Guide />
+      <FeatureSection />
     </div>
   );
 }

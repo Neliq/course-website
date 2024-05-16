@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "../atoms/button";
 import Image from "next/image";
 
 const Hero = () => {
@@ -10,8 +10,8 @@ const Hero = () => {
         <h1 className="mb-4 text-6xl leading-snug">
           Upgrade your <br /> knowledge today!
         </h1>
-        <div className="mb-4 flex rounded bg-sky-200 px-4 py-2 text-lg font-semibold text-black">
-          100% Free
+        <div className="text-md mb-4 flex rounded-full border-2 border-indigo-800 bg-indigo-200 px-4 py-2 font-semibold text-indigo-800 opacity-75">
+          Free Access
         </div>
         <p className="mb-8 max-w-2xl text-base leading-normal">
           Welcome to the gateway of knowledge and transformation! Here, embark
@@ -20,9 +20,9 @@ const Hero = () => {
           those hungry for growth, driven by curiosity, and passionate about
           mastering new skills.
         </p>
-        <Link href="/courses">
-          <Button>Get Started</Button>
-        </Link>
+        <Button href="/courses" variant="primary">
+          Get Started
+        </Button>
       </div>
     </div>
   );

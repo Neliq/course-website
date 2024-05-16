@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { FaFigma, FaRegEdit } from "react-icons/fa";
+import { FaFigma, FaRegEdit, FaRegCheckCircle } from "react-icons/fa";
 
-import { Button } from "../ui/button";
+import { Button } from "../atoms/button";
 import Image from "next/image";
 
 import {
@@ -91,23 +91,49 @@ const Task: React.FC<TaskProps> = ({ title, description, href, id }) => {
         <h1 className="text-xl">{title}</h1>
         <p className="max-w-[640px]">{description}</p>
         <div className="flex flex-col gap-4 lg:flex-row">
-          <Link href={href} target="_blank" rel="noopener noreferrer">
-            <Button className="gap-[8px] bg-blue-600">
-              <FaFigma />
-              Open Figma File
-            </Button>
-          </Link>
+          <Button href={href} newTab={true} variant="primary">
+            <FaFigma />
+            Open Figma File
+          </Button>
 
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
-            <DialogTrigger asChild>
-              <Button className="gap-[8px] bg-green-600" disabled={isSent}>
-                <FaRegEdit />
-                {isSent ? "Already sent" : "Send for review"}
+            <DialogTrigger>
+              <Button variant={isSent ? "success" : "secondary"}>
+                {isSent ? <FaRegCheckCircle /> : <FaRegEdit />}
+                {isSent ? "Already sent (edit)" : "Send for review"}
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-[328px] lg:max-w-[512px]">
               {isSent ? (
-                <div>Send successfully</div>
+                <div>
+                  <DialogHeader>
+                    <DialogTitle>Sent Successfully</DialogTitle>
+                    <DialogDescription>
+                      Your task has been sent for review. <br />
+                      You can still edit the link if needed.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <form onSubmit={handleSubmit} className="grid gap-4 py-4">
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="link" className="text-right">
+                          Link to file
+                        </Label>
+                        <Input
+                          id={id}
+                          name="link"
+                          placeholder="Paste link here"
+                          className="col-span-3"
+                        />
+                      </div>
+                      <div className="flex justify-end">
+                        <Button type="submit" variant="primary">
+                          Resend
+                        </Button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               ) : (
                 <>
                   <DialogHeader>
@@ -131,7 +157,11 @@ const Task: React.FC<TaskProps> = ({ title, description, href, id }) => {
                           className="col-span-3"
                         />
                       </div>
-                      <Button type="submit">Send for review</Button>
+                      <div className="flex justify-end">
+                        <Button type="submit" variant="primary">
+                          Send for review
+                        </Button>
+                      </div>
                     </form>
                   </div>
                 </>

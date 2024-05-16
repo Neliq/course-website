@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/globals.css";
 
-import { NextAuthProvider } from "./Providers";
+import { NextAuthProvider } from "@/app/Providers";
 
 import { Inter, Roboto_Mono } from "next/font/google";
-
-import { Background } from "../components/sections/background";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -85,10 +83,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${roboto_mono.variable}`}>
-      <body>
-        <NextAuthProvider>
-          <Background>{children}</Background>
-        </NextAuthProvider>
+      <body className="bg-slate-50">
+        <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>
   );
