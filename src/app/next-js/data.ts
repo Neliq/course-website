@@ -3,7 +3,7 @@ export const data = [
   {
     id: '1',
     name: 'Introduction',
-    videoId: 'ZjAqacIC_3c',
+    videoId: '__mSgDEOyv8',
     videoTitle: 'Introduction to Next.js [5 mins]',
     videoDesc: 'Next.js is a React framework that provides a solution for server-side rendering, routing, and tooling. It is a great tool for building static websites and server-side rendered applications. In this video, we will learn about the basics of Next.js and how to get started with it.',
     title: '',

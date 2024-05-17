@@ -13,6 +13,7 @@ type ButtonProps = {
   newTab?: boolean;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
+  classNameProp?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,10 +22,11 @@ const Button: React.FC<ButtonProps> = ({
   href,
   newTab,
   type,
+  classNameProp,
   onClick,
 }) => {
   const commonClasses =
-    "inline-flex items-center rounded-full px-6 py-2 gap-2 text-md font-regular shadow-sm";
+    "inline-flex items-center rounded-full px-6 py-2 gap-2 text-md font-regular";
   let variantClasses;
 
   switch (variant) {
@@ -58,18 +60,35 @@ const Button: React.FC<ButtonProps> = ({
 
   const className = `${commonClasses} ${variantClasses}`;
 
-  return href ? (
+  return variant === "disabled" ? (
+    <button
+      type={type}
+      className={`${className} ${classNameProp}`}
+      onClick={onClick}
+      disabled
+    >
+      {children}
+    </button>
+  ) : href ? (
     <Link
       href={href}
       target={newTab ? "_blank" : "_self"}
       rel={newTab ? "noopener noreferrer" : ""}
     >
-      <button type={type} className={className} onClick={onClick}>
+      <button
+        type={type}
+        className={`${className} ${classNameProp}`}
+        onClick={onClick}
+      >
         {children}
       </button>
     </Link>
   ) : (
-    <button type={type} className={className} onClick={onClick}>
+    <button
+      type={type}
+      className={`${className} ${classNameProp}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

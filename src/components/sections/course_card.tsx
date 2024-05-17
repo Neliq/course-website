@@ -6,10 +6,19 @@ type CardProps = {
   src: string;
   title: string;
   description: string;
+  disabled?: boolean;
 };
 
-const CourseCard: React.FC<CardProps> = ({ href, src, title, description }) => (
-  <div className="flex w-full flex-col items-center justify-between overflow-hidden rounded-lg bg-white lg:flex-row lg:items-start">
+const CourseCard: React.FC<CardProps> = ({
+  href,
+  src,
+  title,
+  description,
+  disabled,
+}) => (
+  <div
+    className={`flex w-full flex-col items-center justify-between overflow-hidden rounded-lg bg-white lg:flex-row lg:items-start ${disabled ? "opacity-50" : ""}`}
+  >
     <div
       style={{
         position: "relative",
@@ -33,9 +42,13 @@ const CourseCard: React.FC<CardProps> = ({ href, src, title, description }) => (
       />
     </div>
     <div className="flex w-full flex-col items-center gap-4 p-8 text-center lg:w-1/2 lg:items-start lg:justify-start lg:text-left">
-      <div className="text-2xl font-semibold">{title}</div>
-      <div>{description}</div>
-      <Button href={href} variant="secondary">
+      <div
+        className={`text-2xl font-semibold ${disabled ? "text-gray-500" : "text-gray-900"}`}
+      >
+        {title}
+      </div>
+      <div className="text-gray-500">{description}</div>
+      <Button href={href} variant={disabled ? "disabled" : "secondary"}>
         See details
       </Button>
     </div>

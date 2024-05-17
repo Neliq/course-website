@@ -7,11 +7,17 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useSession } from "next-auth/react";
 
-export default function NavBar() {
+type NavBarProps = {
+  stick?: boolean;
+};
+
+const NavBar: React.FC<NavBarProps> = ({ stick }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { status } = useSession();
   return (
-    <header className="w-full rounded-2xl bg-white">
+    <header
+      className={`w-full rounded-2xl bg-white ${stick ? "" : "fixed left-0 right-0 top-0 z-50 mx-auto max-w-[1152px] bg-white/75 backdrop-blur-md"}`}
+    >
       <nav
         className="mx-auto flex items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -41,13 +47,13 @@ export default function NavBar() {
         <div className="hidden lg:flex lg:gap-x-12">
           <Link
             href="/"
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600"
+            className="text-lg font-semibold leading-6 text-gray-900 hover:text-indigo-600"
           >
             Home
           </Link>
           <Link
             href="/courses"
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600"
+            className="text-lg font-semibold leading-6 text-gray-900 hover:text-indigo-600"
           >
             Courses
           </Link>
@@ -112,4 +118,6 @@ export default function NavBar() {
       </Dialog>
     </header>
   );
-}
+};
+
+export { NavBar };

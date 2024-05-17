@@ -3,9 +3,9 @@ import "@/app/globals.css";
 
 import { NextAuthProvider } from "@/app/Providers";
 
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, Roboto_Mono, Nunito_Sans } from "next/font/google";
 
-const inter = Inter({
+const inter = Nunito_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
@@ -83,7 +83,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${roboto_mono.variable}`}>
-      <body className="bg-slate-50">
+      <body className=" bg-slate-100 text-gray-900 heropattern-topography-indigo-100/90">
         <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>

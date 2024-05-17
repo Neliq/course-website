@@ -4,4 +4,4 @@ export { default } from "next-auth/middleware"
 
 // Applies next-auth only to matching routes - can be regex
 // Ref: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
-export const config = { matcher: ["/courses", "/ui-course", "/ui-course/:path*"] }
+export const config = { matcher: ["/ui-course", "/ui-course/:path*"] }
