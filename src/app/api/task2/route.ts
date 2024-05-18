@@ -21,12 +21,11 @@ export async function GET(request: any) {
     await connectMongoDB();
 
     const email = request.nextUrl.searchParams.get('email');
-    const task = request.nextUrl.searchParams.get('task');
 
-    // Find a task with the given email and task id
-    const data = await Task.findOne({ email, task });
+    // Count the tasks with the given email
+    const count = await Task.countDocuments({ email });
 
-    return NextResponse.json(data);
+    return NextResponse.json({ count });
   } else {
     return NextResponse.json({ message: "Method not allowed" }, { status: 405 });
   }

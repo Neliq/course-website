@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type ButtonProps = {
   variant:
@@ -70,11 +72,23 @@ const Button: React.FC<ButtonProps> = ({
       {children}
     </button>
   ) : href ? (
-    <Link
-      href={href}
-      target={newTab ? "_blank" : "_self"}
-      rel={newTab ? "noopener noreferrer" : ""}
-    >
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      <Link
+        href={href}
+        target={newTab ? "_blank" : "_self"}
+        rel={newTab ? "noopener noreferrer" : ""}
+      >
+        <button
+          type={type}
+          className={`${className} ${classNameProp}`}
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      </Link>
+    </motion.div>
+  ) : (
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
       <button
         type={type}
         className={`${className} ${classNameProp}`}
@@ -82,15 +96,7 @@ const Button: React.FC<ButtonProps> = ({
       >
         {children}
       </button>
-    </Link>
-  ) : (
-    <button
-      type={type}
-      className={`${className} ${classNameProp}`}
-      onClick={onClick}
-    >
-      {children}
-    </button>
+    </motion.div>
   );
 };
 

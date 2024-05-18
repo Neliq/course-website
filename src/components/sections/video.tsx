@@ -28,7 +28,7 @@ const YoutubeVideo: React.FC<YoutubeVideoProps> = ({
   if (videoId === "") return null;
 
   return (
-    <div className="flex w-full flex-col justify-center gap-8 rounded-xl border-[1px] border-slate-200 bg-neutral-950 lg:flex-row">
+    <div className="flex w-full flex-col justify-center gap-8 overflow-hidden rounded-xl border-[1px] border-slate-200 bg-neutral-950 lg:flex-row">
       <div className="w-full min-w-[256px] max-w-[1024px] overflow-hidden">
         <div>
           <LiteYouTubeEmbed id={videoId} title="" poster="maxresdefault" />

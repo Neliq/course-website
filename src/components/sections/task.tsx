@@ -63,6 +63,49 @@ const Task: React.FC<TaskProps> = ({ title, description, href, id }) => {
       }
     }
   };
+
+  const handleCheck = async () => {
+    if (session) {
+      if (!isSent) {
+        const response = await fetch("/api/task", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: session?.user?.email, // Add null check for session.user
+            task: id,
+            link: "done",
+            state: "done",
+          }),
+        });
+
+        if (response.ok) {
+          setIsSent(true);
+        } else {
+          // Handle error
+        }
+      } else {
+        const response = await fetch("/api/task", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: session?.user?.email, // Add null check for session.user
+            task: id,
+          }),
+        });
+
+        if (response.ok) {
+          setIsSent(false);
+        } else {
+          // Handle error
+        }
+      }
+    }
+  };
+
   // ...
   useEffect(() => {
     const fetchRecord = async () => {
@@ -84,7 +127,22 @@ const Task: React.FC<TaskProps> = ({ title, description, href, id }) => {
     fetchRecord();
   }, [session?.user?.email, id]);
 
-  if (href === "") return null;
+  if (href === "")
+    return (
+      <div className="flex w-full items-center justify-center rounded-xl border-[1px] border-slate-200 bg-white p-8">
+        <div className="flex w-full flex-col items-center justify-center gap-8 text-center lg:items-start lg:text-left">
+          <div className="flex flex-col gap-4 lg:flex-row">
+            <Button
+              variant={isSent ? "success" : "secondary"}
+              onClick={handleCheck}
+            >
+              {isSent ? <FaRegCheckCircle /> : <FaRegEdit />}
+              {isSent ? "Already done (undo)" : "Mark as done"}
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
   return (
     <div className="flex w-full items-center justify-center rounded-xl border-[1px] border-slate-200 bg-white p-8">
       <div className="flex w-full flex-col items-center justify-center gap-8 text-center lg:items-start lg:text-left">
